@@ -15,7 +15,6 @@ import torch
 import torchvision.transforms.functional as TF
 from torchvision.transforms import Resize
 
-# from djitellopy import Tello
 from droneHCC import Drone
 
 
@@ -42,7 +41,6 @@ def detect(frame, model, opt, img_size=736):
     return xy1, xy2, conf, labels, center, len(labels)
 
 def render(frame, xy1, xy2, conf, center, labels, classes):
-    # x_scale, y_scale = 960 / 640, 720 / 640
     bbox_num = len(labels)
 
     font = cv2.FONT_HERSHEY_SIMPLEX
@@ -55,15 +53,14 @@ def render(frame, xy1, xy2, conf, center, labels, classes):
 
         # bbox
         cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 1)
+
+        # center
         cv2.circle(frame, tuple(center[i]), 3, (0, 255, 0))
 
         # label
         label_size, _ = cv2.getTextSize(label, font, font_size, 1)
         cv2.rectangle(frame, (x1, y1 - label_size[1]), (x1 + label_size[0], y1), (255, 0, 0), -1)
         cv2.putText(frame, label, (x1, y1), font, font_size, (255, 255, 255), 1)
-
-    def pekora():
-        pass
 
 
 if __name__ == '__main__':
@@ -122,7 +119,6 @@ if __name__ == '__main__':
     while True:
         fr += 1
         frame = drone.background_frame_read.frame
-        # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         if (fr % r == 0):
             xy1, xy2, conf, labels, center, num = detect(TF.to_tensor(frame).to(device), model, opt, 640)
 
