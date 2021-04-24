@@ -1,5 +1,5 @@
 # Human Centric Computing Lab
-2021 Spring in-class project
+2021 Spring in-class midterm project
 
 # Environment
 ### Python 3 + Windows
