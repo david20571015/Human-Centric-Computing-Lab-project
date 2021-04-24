@@ -10,9 +10,16 @@ pip install -r requirements.txt
 
 ### Python 3 + Linux
 ``` shell
-pip install -r yolov5/requirements.txt
-pip install -r requirements.txt
+pip3 install -r yolov5/requirements.txt
+pip3 install -r requirements.txt
 ```
+
+# Resources
+- dataset
+  - https://drive.google.com/drive/folders/19X1T0NN91ZBwucYzr_Zdzsqw--IbbjXE?usp=sharing
+- pre-trained weights for yolov5l
+  - https://drive.google.com/file/d/1-m808psmsuM3bASCK0qKbl90AidxNahR/view?usp=sharing
+
 
 # Execution
 ### Python 3 + Windows
